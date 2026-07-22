@@ -1,0 +1,155 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+.home-container {
+  width: 100%;
+}
+
+/* HERO SECTION (BANNER SUPERIOR) */
+.hero-section {
+  width: 100%;
+  height: 260px;
+  /* Opacidade corrigida para 0.6 e 0.7 + https:// ajustado */
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),
+    url('https://image.tmdb.org/t500/8YFL5QQ2oNo1P3P329329.jpg') center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-overlay {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* BARRA DE PESQUISA */
+.search-box {
+  display: flex;
+  width: 90%;
+  max-width: 600px;
+  background-color: #fff;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.search-box input {
+  flex: 1;
+  padding: 14px 20px; /* Removida a vírgula inválida */
+  border: none;
+  font-size: 1rem;
+  outline: none;
+}
+
+/* Botão da Busca Base */
+.search-box button {
+  background-color: #f26522;
+  border: none;
+  padding: 0 24px;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.search-box button:hover {
+  background-color: #d9531e;
+}
+
+/* NAVEGAÇÃO */
+.navegacao {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 20px 0;
+  background-color: #ffffff;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.nav-item,
+.nav-item-ativado {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #666;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s;
+}
+
+.nav-item-ativado,
+.nav-item:hover {
+  color: #f26522;
+}
+
+/* SEÇÃO PRINCIPAL E LISTA DE FILMES */
+.secao-principal {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+.secao-principal h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #222;
+  border-left: 4px solid #f26522;
+  padding-left: 10px;
+}
+
+.lista-filmes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 25px;
+}
+
+.filme-card {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.filme-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* CLASSE DO PÔSTER */
+.poster {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+/* CARREGANDO E ERRO */
+.carregando-filmes,
+.mensagem-erro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+}
+
+.mensagem-erro h2 {
+  color: #e53e3e;
+}
