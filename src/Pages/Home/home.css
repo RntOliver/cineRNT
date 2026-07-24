@@ -1,3 +1,6 @@
+/* ==========================================
+   RESET & ESTILOS GERAIS
+   ========================================== */
 * {
   box-sizing: border-box;
   padding: 0;
@@ -14,22 +17,48 @@ body {
   width: 100%;
 }
 
-/* HERO SECTION (BANNER SUPERIOR) */
+/* ==========================================
+   HERO BANNER & CARROSSEL
+   ========================================== */
 .hero-section {
+  position: relative;
   width: 100%;
-  height: 260px;
-  /* Opacidade corrigida para 0.6 e 0.7 + https:// ajustado */
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),
-    url('https://image.tmdb.org/t500/8YFL5QQ2oNo1P3P329329.jpg') center/cover no-repeat;
+  height: 380px;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.hero-overlay {
+.hero-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  z-index: 1;
+}
+
+.hero-slide.ativo {
+  opacity: 1;
+}
+
+.hero-overlay {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.8) 100%);
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 
 /* BARRA DE PESQUISA */
@@ -37,26 +66,25 @@ body {
   display: flex;
   width: 90%;
   max-width: 600px;
-  background-color: #fff;
+  background-color: #ffffff;
   border-radius: 6px;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .search-box input {
   flex: 1;
-  padding: 14px 20px; /* Removida a vírgula inválida */
+  padding: 14px 20px;
   border: none;
   font-size: 1rem;
   outline: none;
 }
 
-/* Botão da Busca Base */
 .search-box button {
   background-color: #f26522;
   border: none;
   padding: 0 24px;
-  color: white;
+  color: #ffffff;
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
@@ -67,7 +95,31 @@ body {
   background-color: #d9531e;
 }
 
-/* NAVEGAÇÃO */
+/* INDICADORES DO CARROSSEL */
+.carrosel-indicadores {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.ponto-indicador {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.ponto-indicador.ativo {
+  background-color: #f26522;
+  transform: scale(1.2);
+}
+
+/* ==========================================
+   NAVEGAÇÃO
+   ========================================== */
 .navegacao {
   display: flex;
   justify-content: center;
@@ -97,7 +149,9 @@ body {
   color: #f26522;
 }
 
-/* SEÇÃO PRINCIPAL E LISTA DE FILMES */
+/* ==========================================
+   SEÇÃO PRINCIPAL & GRID DE FILMES
+   ========================================== */
 .secao-principal {
   max-width: 1200px;
   margin: 30px auto;
@@ -118,30 +172,53 @@ body {
   gap: 25px;
 }
 
+/* CARDS DE FILMES */
 .filme-card {
   display: flex;
   flex-direction: column;
   background: #ffffff;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
   cursor: pointer;
 }
 
 .filme-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* CLASSE DO PÔSTER */
+.filme-card a {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+}
+
 .poster {
   width: 100%;
-  height: 300px;
+  height: 320px;
   object-fit: cover;
+  display: block;
 }
 
-/* CARREGANDO E ERRO */
+.titulo-filme {
+  padding: 12px 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #222;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+/* ==========================================
+   FEEDBACKS & ESTADOS (LOADING, ERRO, VAZIO)
+   ========================================== */
 .carregando-filmes,
 .mensagem-erro {
   display: flex;
@@ -152,4 +229,11 @@ body {
 
 .mensagem-erro h2 {
   color: #e53e3e;
+}
+
+.sem-resultado {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #666;
+  margin-top: 30px;
 }

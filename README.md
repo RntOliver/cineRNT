@@ -1,16 +1,6 @@
-# React + Vite
+Para poder acessar as fontes da API do TMDB (The Movie DataBase) aceesa essa chave da API = https://api.themoviedb.org/3/movie/now_playing?api_key=1958c1d1a3d19020e404662fd758f5bf&language=pt-BR
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+As URLs que estão a baixo ainda mais a "URL DA API" são somente um exemplo de URLs de várias que podemos usar dentro do nosso site cineRNT! 
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+URL DA API: /movie/now_playing?api_key=1958c1d1a3d19020e404662fd758f5bf&language=pt-BR
+BASE DA API:api.themoviedb.org/3
